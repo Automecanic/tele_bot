@@ -5,7 +5,6 @@ from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandl
 import os
 
 load_dotenv() # Carga las variables del archivo .env
-
 # Reemplaza con tu token de bot real
 # Es mejor usar una variable de entorno para esto, especialmente si vas a subir a GitHub
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "") 
