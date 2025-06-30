@@ -6,15 +6,3 @@ channel = "stable-24_05"
 
 [deployment]
 run = ["sh", "-c", "python bot.py"]
-
-[workflows]
-runButton = "Run Bot"
-
-[[workflows.workflow]]
-name = "Run Bot"
-author = 2919868
-mode = "sequential"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "python bot.py"
