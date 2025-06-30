@@ -1,0 +1,2 @@
+python-telegram-bot # Reemplaza X con la versión que tengas, o quítalo para la última
+python-dotenv
