@@ -2,6 +2,7 @@
 from dotenv import load_dotenv
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
+from datetime import datetime
 import os
 
 load_dotenv() # Carga las variables del archivo .env
@@ -12,6 +13,13 @@ TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Maneja el comando /start."""
     await update.message.reply_text('¡Hola! Soy tu bot de prueba. Usa /help para ver mis comandos.')
+async def fecha(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Maneja el comando /fecha."""
+    #esto saca la fecha actual
+    fecha_actual = datetime.now()
+    #devulbe la fecha por pantalla
+    await update.message.reply_text(fecha_actual.strftime("%d/%m/%Y"))
+
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Maneja el comando /help."""
@@ -44,6 +52,7 @@ def main() -> None:
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("help", help_command))
     application.add_handler(CommandHandler("echo", echo))
+    application.add.handler(CommandHandler("fecha", fecha))
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message)) # Para mensajes de texto que no son comandos
 
     print("Bot iniciado... Presiona Ctrl+C para detenerlo.")
