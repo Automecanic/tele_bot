@@ -52,7 +52,7 @@ def main() -> None:
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("help", help_command))
     application.add_handler(CommandHandler("echo", echo))
-    application.add.handler(CommandHandler("fecha", fecha))
+    application.add_handler(CommandHandler("fecha", fecha))
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message)) # Para mensajes de texto que no son comandos
 
     print("Bot iniciado... Presiona Ctrl+C para detenerlo.")
